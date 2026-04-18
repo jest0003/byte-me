@@ -3,6 +3,7 @@ import { IoMdSearch } from "react-icons/io";
 import { GoHeartFill } from "react-icons/go";
 import { FiHeart } from "react-icons/fi";
 import { RiShoppingBasket2Line } from "react-icons/ri";
+import Link from "next/link";
 
 const navTop = () => {
     return (
@@ -11,11 +12,11 @@ const navTop = () => {
 <SiAirbyte className="size-8 mr-2" /> <h4>ByteMe</h4>
             </div>
             <div className="flex items-center justify-end gap-4 ml-6">
-                <a href="/"><h5 className="hover:underline">Home</h5></a>
-                <a href="/"><h5 className="hover:underline">Phones</h5></a>
-                <a href="/"><h5 className="hover:underline">Tablets</h5></a>
-                <a href="/"><h5 className="hover:underline">Laptops</h5></a>
-                <a href="/"><h5 className="hover:underline">Accessories</h5></a>
+                <Link href="/"><h5 className="hover:underline">Home</h5></Link>
+                <Link href={`/category`}><h5 className="hover:underline">Phones</h5></Link>
+                <Link href="/"><h5 className="hover:underline">Tablets</h5></Link>
+                <Link href="/"><h5 className="hover:underline">Laptops</h5></Link>
+                <Link href="/"><h5 className="hover:underline">Accessories</h5></Link>
             </div>
             <div className="flex items-center">
                 <IoMdSearch className="size-7 mr-3" />
