@@ -8,9 +8,9 @@ import Link from "next/link";
 const navTop = () => {
     return (
         <nav className="flex items-center justify-between mt-3 mb-12">
-            <div className="flex items-center">
+            <Link href="/" className="flex items-center">
 <SiAirbyte className="size-8 mr-2" /> <h4>ByteMe</h4>
-            </div>
+            </Link>
             <div className="flex items-center justify-end gap-4 ml-6">
                 <Link href="/"><h5 className="hover:underline">Home</h5></Link>
                 <Link href={`/category`}><h5 className="hover:underline">Phones</h5></Link>
