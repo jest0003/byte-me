@@ -8,6 +8,7 @@
   --color-3: #CCE0F9;
   --color-4: #9ABBEE;
   --color-5: #D0A3DA;
+  --color-white: #FEFEFE;
 
 
   --space-s: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
