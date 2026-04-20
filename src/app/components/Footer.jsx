@@ -1,7 +1,7 @@
 const Footer = () => {
 	/* 151318 */
 	return (
-		<nav className="px-5 py-10 fixed bottom-0 left-0 w-full" style={{ background: "var(--text)", color: "var(--color-white)" }}>
+		<nav className="px-5 py-10 w-full" style={{ background: "var(--text)", color: "var(--color-white)" }}>
 			<div className="max-w-[1200px] mx-auto flex justify-between gap-8">
 				<div className="flex flex-1 mt-10">
 					<div className="flex-1">
