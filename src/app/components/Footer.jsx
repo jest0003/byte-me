@@ -1,7 +1,7 @@
 const Footer = () => {
 	/* 151318 */
 	return (
-		<footer className="bg-[#6d8273] text-white px-5 py-10 fixed bottom-0 left-0 w-full">
+		<nav className="bg-[#6d8273] text-white px-5 py-10 fixed bottom-0 left-0 w-full">
 			<div className="max-w-[1200px] mx-auto flex justify-between gap-8">
 				<div className="flex flex-1 mt-10">
 					<div className="flex-1">
@@ -89,7 +89,7 @@ const Footer = () => {
 					</div>
 				</div>
 			</div>
-		</footer>
+		</nav>
 	);
 };
 
