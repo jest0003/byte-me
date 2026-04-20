@@ -1,5 +1,6 @@
 import { Exo_2, Gidole } from "next/font/google";
 import "./globals.css";
+import NavTop from "./components/navTop";
 
 import Footer from "./components/Footer";
 
@@ -20,6 +21,16 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  return (
+    <html
+      lang="en"
+      className={`${exo2.variable} ${gidole.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col">
+        <NavTop />
+        <main>{children}</main></body>
+    </html>
+  );
 	return (
 		<html lang="en" className={`${exo2.variable} ${gidole.variable} h-full antialiased`}>
 			<body className="min-h-full flex flex-col">
