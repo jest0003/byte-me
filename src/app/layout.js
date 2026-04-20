@@ -29,14 +29,7 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         <NavTop />
         <main>{children}</main></body>
+        <Footer />
     </html>
   );
-	return (
-		<html lang="en" className={`${exo2.variable} ${gidole.variable} h-full antialiased`}>
-			<body className="min-h-full flex flex-col">
-				<main>{children}</main>
-				<Footer />
-			</body>
-		</html>
-	);
 }
