@@ -19,9 +19,9 @@ const navTop = () => {
                 <Link href="/"><h5 className="hover:underline">Accessories</h5></Link>
             </div>
             <div className="flex items-center">
-                <IoMdSearch className="size-7 mr-3" />
-                <FiHeart className="size-6 mr-3" />
-                <RiShoppingBasket2Line className="size-7" />
+                <IoMdSearch className="size-7 mr-3 cursor-pointer" />
+                <FiHeart className="size-6 mr-3 cursor-pointer" />
+                <RiShoppingBasket2Line className="size-7 cursor-pointer" />
             </div>
         </nav>
     );
