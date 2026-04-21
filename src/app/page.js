@@ -5,6 +5,8 @@ import FeaturedCard from "./components/indexpage/FeaturedCard";
 import { RiShoppingBasket2Line } from "react-icons/ri";
 import FeaturedList from "./components/indexpage/FeaturedList";
 
+import Link from "next/link";
+
 export default function Home() {
 	return (
 		<div>
@@ -21,19 +23,29 @@ export default function Home() {
 						<button className="border-2 border-white text-white cursor-pointer p-2 rounded-3xl">
 							Add to basket
 						</button>
-						<button className="border-2 border-[#CCE0F9] filter drop-shadow-[0_0_0.75rem_white] bg-white cursor-pointer p-2 rounded-3xl">
-							Read more
-						</button>
+						<Link href={``}>
+							<button className="border-2 border-[#CCE0F9] filter drop-shadow-[0_0_0.75rem_white] bg-white cursor-pointer p-2 rounded-3xl">
+								Read more
+							</button>
+						</Link>
 					</div>
 				</div>
 			</section>
 			<section className="my-10">
 				<h3>Shop categories</h3>
 				<div className="flex flex-row gap-20 justify-center">
-					<CategoryCard imgsrc="/img/phone_category.png" categoryname="Phones"></CategoryCard>
-					<CategoryCard imgsrc="/img/tablet_category.png" categoryname="Tablets"></CategoryCard>
-					<CategoryCard imgsrc="/img/laptop_category.png" categoryname="Laptops"></CategoryCard>
-					<CategoryCard imgsrc="/img/accessories_category.png" categoryname="Accessories"></CategoryCard>
+					<Link href={`/category/smartphones`}>
+						<CategoryCard imgsrc="/img/phone_category.png" categoryname="Phones"></CategoryCard>
+					</Link>
+					<Link href={`/category/tablets`}>
+						<CategoryCard imgsrc="/img/tablet_category.png" categoryname="Tablets"></CategoryCard>
+					</Link>
+					<Link href={`/category/laptops`}>
+						<CategoryCard imgsrc="/img/laptop_category.png" categoryname="Laptops"></CategoryCard>
+					</Link>
+					<Link href={`/category/accessories`}>
+						<CategoryCard imgsrc="/img/accessories_category.png" categoryname="Accessories"></CategoryCard>
+					</Link>
 				</div>
 			</section>
 			<section className="my-20">
@@ -55,9 +67,11 @@ export default function Home() {
 						<button className="border-2 border-white text-white cursor-pointer p-2 rounded-3xl">
 							Add to basket
 						</button>
-						<button className="border-2 border-[#CCE0F9] filter drop-shadow-[0_0_0.75rem_white] bg-white cursor-pointer p-2 rounded-3xl">
-							Read more
-						</button>
+						<Link href={``}>
+							<button className="border-2 border-[#CCE0F9] filter drop-shadow-[0_0_0.75rem_white] bg-white cursor-pointer p-2 rounded-3xl">
+								Read more
+							</button>
+						</Link>
 					</div>
 				</div>
 
