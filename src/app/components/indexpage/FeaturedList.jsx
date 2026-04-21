@@ -6,16 +6,15 @@ const FeaturedList = () => {
 };
 
 const FetchList = async () => {
-	"use server";
 	try {
-		const response = await fetch("https://dummyjson.com/products/category/smartphones");
+		const response = await fetch("https://dummyjson.com/products/category/smartphones?limit=8");
 		console.log(response);
-		const products = await response.json();
+		const data = await response.json();
 
-		return products.map((product) => {
+		return data.products.map((product) => {
 			return (
 				<div key={product.id} className="relative">
-					<FeaturedCard key={product.id} title={product.title} price={product.price} image={product.images} />
+					<FeaturedCard title={product.title} price={product.price} image={product.thumbnail} />
 				</div>
 			);
 		});

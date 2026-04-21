@@ -40,11 +40,7 @@ export default function Home() {
 				<div className="flex justify-baseline">
 					<h3>Featured products</h3>
 				</div>
-				<div className="flex flex-row gap-8 justify-center">
-					<FeaturedCard></FeaturedCard>
-					<FeaturedCard></FeaturedCard>
-					<FeaturedCard></FeaturedCard>
-					<FeaturedCard></FeaturedCard>
+				<div className="flex flex-row gap-8 justify-center flex-wrap">
 					<FeaturedList></FeaturedList>
 				</div>
 			</section>
