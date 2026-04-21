@@ -14,7 +14,7 @@ const FetchList = async ({slug}) => {
 		return data.products.map((product) => {
 			return (
 				<div key={product.id} className="relative">
-					<CategoryCard title={product.title} price={product.price} image={product.thumbnail} />
+					<CategoryCard key={product.id} slug={slug} id={product.id} title={product.title} price={product.price} image={product.thumbnail} />
 				</div>
 			);
 		});
