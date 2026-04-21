@@ -1,6 +1,7 @@
 import { RiShoppingBasket2Line } from "react-icons/ri";
 import FavoritElement from "./FavoritElement";
 import Image from "next/image";
+import Link from "next/link";
 
 const FeaturedCard = ({ id, title, price, image }) => {
 	return (
@@ -9,7 +10,9 @@ const FeaturedCard = ({ id, title, price, image }) => {
 				<FavoritElement></FavoritElement>
 				<Image src={image} alt={title} width={150} height={150} />
 			</figure>
+			<Link href={`/${id}`}>
 			<p className="m-5">{title}</p>
+			</Link>
 			<div className=" m-5 flex justify-between">
 				<p className="">{price}$</p>
 				<RiShoppingBasket2Line className="size-9 cursor-pointer" />
