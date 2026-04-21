@@ -21,15 +21,13 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  return (
-    <html
-      lang="en"
-      className={`${exo2.variable} ${gidole.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">
-        <NavTop />
-        <main>{children}</main>
-        <Footer /></body>
-    </html>
-  );
+	return (
+		<html lang="en" className={`${exo2.variable} ${gidole.variable} h-full antialiased`}>
+			<body className="min-h-full flex flex-col">
+				<NavTop />
+				<main>{children}</main>
+				<Footer />
+			</body>
+		</html>
+	);
 }

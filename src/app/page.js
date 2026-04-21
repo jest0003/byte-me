@@ -7,7 +7,7 @@ import { RiShoppingBasket2Line } from "react-icons/ri";
 export default function Home() {
 	return (
 		<div>
-			<section className="grid-hero bg-[#eef2ff] hero-bg">
+			<section className="grid-hero stretch bg-[#eef2ff] hero-bg p-20">
 				<img src="/img/mobil.png" className="" alt="category" />
 
 				<div className="">
@@ -46,7 +46,7 @@ export default function Home() {
 					<FeaturedCard></FeaturedCard>
 				</div>
 			</section>
-			<section className="product-display h-[626px] grid-hero">
+			<section className="grid-hero p-[30px] product-display h-[626px] stretch">
 				<div className="">
 					<h2>hej</h2>
 					<p className="">Product name</p>

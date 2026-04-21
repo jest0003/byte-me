@@ -87,7 +87,6 @@ body {
 .grid-hero {
 	display: grid;
 	grid-template-columns: 1fr 2fr;
-	padding: 30px;
 	place-items: center;
 }
 
@@ -99,4 +98,16 @@ body {
 .product-display {
 	background-image: url("/img/wave.png");
 	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
 }
+
+.stretch {
+	width: 100vw;
+	margin-left: calc(50% - 50vw);
+}
+
+/* body:has(:first-child:has(section)) {
+	margin: 0;
+}
+ */
