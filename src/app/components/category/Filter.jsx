@@ -2,7 +2,7 @@ import { IoOptionsOutline } from "react-icons/io5";
 
 const Filter = () => {
   return (
-    <section className="border-solid border-2 w-fit pl-8 pr-5 pb-2">
+    <section className="border-solid border-2 w-fit pl-8 pr-5 pb-2 h-fit">
       <div className="flex items-center gap-3 pt-2 pb-2">
         <IoOptionsOutline className="size-7" />{" "}
         <h4>FILTER</h4>
@@ -12,6 +12,7 @@ const Filter = () => {
           <h4>Price</h4>
           <div className="flex items-center gap-3">
             <input
+              className="accent-black"
               type="checkbox"
               name=""
               id=""
@@ -20,6 +21,7 @@ const Filter = () => {
           </div>
           <div className="flex items-center gap-3">
             <input
+              className="accent-black"
               type="checkbox"
               name=""
               id=""
@@ -32,6 +34,7 @@ const Filter = () => {
           <h4>Brand</h4>
           <div className="flex items-center gap-3">
             <input
+              className="accent-black"
               type="checkbox"
               name=""
               id=""
@@ -40,6 +43,7 @@ const Filter = () => {
           </div>
           <div className="flex items-center gap-3">
             <input
+              className="accent-black"
               type="checkbox"
               name=""
               id=""
@@ -48,6 +52,7 @@ const Filter = () => {
           </div>
           <div className="flex items-center gap-3">
             <input
+              className="accent-black"
               type="checkbox"
               name=""
               id=""
@@ -60,6 +65,7 @@ const Filter = () => {
           <h4>Color</h4>
           <div className="flex items-center gap-3">
             <input
+              className="accent-black"
               type="checkbox"
               name=""
               id=""
@@ -68,6 +74,7 @@ const Filter = () => {
           </div>
           <div className="flex items-center gap-3">
             <input
+              className="accent-black"
               type="checkbox"
               name=""
               id=""
@@ -76,6 +83,7 @@ const Filter = () => {
           </div>
           <div className="flex items-center gap-3">
             <input
+              className="accent-black"
               type="checkbox"
               name=""
               id=""
@@ -84,6 +92,7 @@ const Filter = () => {
           </div>
           <div className="flex items-center gap-3">
             <input
+              className="accent-black"
               type="checkbox"
               name=""
               id=""
@@ -92,6 +101,7 @@ const Filter = () => {
           </div>
           <div className="flex items-center gap-3">
             <input
+              className="accent-black"
               type="checkbox"
               name=""
               id=""
