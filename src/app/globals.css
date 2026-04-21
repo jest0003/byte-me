@@ -107,7 +107,8 @@ body {
 	margin-left: calc(50% - 50vw);
 }
 
-/* body:has(:first-child:has(section)) {
-	margin: 0;
+.grid-product_display {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	place-items: center;
 }
- */
