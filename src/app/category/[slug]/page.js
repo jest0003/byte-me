@@ -1,12 +1,12 @@
 import Filter from "../../components/category/Filter";
-import FeaturedCard from "../../components/indexpage/FeaturedCard";
+import CategoryList from "@/app/components/category/CategoryList";
 
 const CategoryPage = async ({ params }) => {
-  const { category } = await params;
+  const { slug } = await params;
 
   const [productRes, catRes] = await Promise.all([
     fetch(
-      `https://dummyjson.com/products/category/${category}`,
+      `https://dummyjson.com/products/category/${slug}`,
     ),
     fetch(
       "https://dummyjson.com/products/categories",
@@ -17,7 +17,7 @@ const CategoryPage = async ({ params }) => {
   const categories = await catRes.json();
 
   const currentCategory = categories.find(
-    (cat) => cat.slug === category,
+    (cat) => cat.slug === slug,
   );
 
   return (
@@ -32,16 +32,13 @@ const CategoryPage = async ({ params }) => {
           ></img>
 
           <section className="absolute top-14 ml-4">
-            <p>Bred / crumb </p>
+            <p>Category / {currentCategory?.name} </p>
             <h1>{currentCategory?.name}</h1>
           </section>
         </article>
         <article className="ml-4 mb-8 mt-8">
           <div className="flex flex-wrap gap-8">
-            <FeaturedCard />
-            <FeaturedCard />
-            <FeaturedCard />
-            <FeaturedCard />
+        <CategoryList slug={slug}/>
           </div>
         </article>
         <img
