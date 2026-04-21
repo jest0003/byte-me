@@ -1,5 +1,6 @@
 "use server";
 import Button from "../../../components/singleview/Button"
+import Favorite from "../../../components/indexpage/FavoritElement";
 
 const ProductPage = async ({ params }) => {
 const { id } = await params;
@@ -21,8 +22,9 @@ const { id } = await params;
       </div> */}
 
       {/* BILLEDE */}
-      <figure className="flex h-[500px] w-[500px] items-center justify-center rounded-sm p-8" style={{ background: "var(--color-3)" }}>
+      <figure className="flex relative h-[500px] w-[500px] items-center justify-center rounded-sm p-8" style={{ background: "var(--color-3)" }}>
         <img src={data.thumbnail} alt={data.title} className="h-[352px] object-contain" />
+        <Favorite />
       </figure>
 
       {/* INFO */}
