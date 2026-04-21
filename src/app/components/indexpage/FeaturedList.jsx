@@ -2,24 +2,20 @@ import FeaturedCard from "./FeaturedCard";
 import Link from "next/link";
 
 const FeaturedList = () => {
-	return <FetchBreed />;
+	return <FetchList />;
 };
 
-const FetchBreed = async () => {
+const FetchList = async () => {
 	"use server";
 	try {
-		const response = await fetch("https://dummyjson.com/products/category/smartphones", {
-			headers: { "x-api-key": process.env.API_KEY },
-		});
+		const response = await fetch("https://dummyjson.com/products/category/smartphones");
 		console.log(response);
-		const breeds = await response.json();
+		const products = await response.json();
 
-		return breeds.map((breed) => {
+		return products.map((product) => {
 			return (
-				<div key={breed.id} className="relative">
-					<Link href={`/detailview/${breed.id}`}>
-						<FeaturedCard key={breed.id} breedGroup={breed.name} origin={breed.price} image={breed.image.url} />
-					</Link>
+				<div key={product.id} className="relative">
+					<FeaturedCard key={product.id} title={product.title} price={product.price} image={product.images} />
 				</div>
 			);
 		});
