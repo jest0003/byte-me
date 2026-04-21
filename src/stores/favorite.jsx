@@ -5,7 +5,7 @@ import { persist } from "zustand/middleware";
 
 const useFavorites = create(
   persist(
-    (set) => ({
+    (set, get) => ({
       favorites: [],
 
       setFavorite: (id) =>
@@ -14,8 +14,8 @@ const useFavorites = create(
         })),
 
       removeFavorite: (id) =>
-        set((state) => ({
-          favorites: state.favorites.filter((f) => f.id !== id),
+        set(() => ({
+          favorites: get().favorites.filter((favorite) => favorite.id !== id),
         })),
     }),
     {
