@@ -45,6 +45,7 @@ export default function Home() {
 					<FeaturedCard></FeaturedCard>
 					<FeaturedCard></FeaturedCard>
 					<FeaturedCard></FeaturedCard>
+					<FeaturedList></FeaturedList>
 				</div>
 			</section>
 			<section className="grid-hero p-[30px] product-display h-[626px] stretch">

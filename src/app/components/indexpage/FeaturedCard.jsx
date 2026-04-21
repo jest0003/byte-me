@@ -1,7 +1,7 @@
 import { RiShoppingBasket2Line } from "react-icons/ri";
 import FavoritElement from "./FavoritElement";
 
-const FeaturedCard = () => {
+const FeaturedCard = ({ id, breedGroup, origin, image }) => {
 	return (
 		<div style={{ background: "var(--color-3)" }} className="my-4 rounded-2xl max-w-full max-h-full w-[275px] h-[330px]">
 			<figure className=" m-5 flex items-center justify-center p-2 relative">
@@ -10,7 +10,7 @@ const FeaturedCard = () => {
 			</figure>
 			<p className="m-5">Product name</p>
 			<div className=" m-5 flex justify-between">
-				<p className="">Price</p>
+				<p className="">{origin}</p>
 				<RiShoppingBasket2Line className="size-9 cursor-pointer" />
 			</div>
 		</div>

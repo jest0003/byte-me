@@ -8,7 +8,7 @@ const FeaturedList = () => {
 const FetchBreed = async () => {
 	"use server";
 	try {
-		const response = await fetch("https://api.thedogapi.com/v1/breeds", {
+		const response = await fetch("https://dummyjson.com/products/category/smartphones", {
 			headers: { "x-api-key": process.env.API_KEY },
 		});
 		console.log(response);
@@ -18,7 +18,7 @@ const FetchBreed = async () => {
 			return (
 				<div key={breed.id} className="relative">
 					<Link href={`/detailview/${breed.id}`}>
-						<BreedCard key={breed.id} breedGroup={breed.name} origin={breed.origin} image={breed.image.url} />
+						<FeaturedCard key={breed.id} breedGroup={breed.name} origin={breed.price} image={breed.image.url} />
 					</Link>
 				</div>
 			);
