@@ -1,14 +1,14 @@
 import CategoryCard from "./CategoryCard";
-import Link from "next/link";
 
-const CategoryList = () => {
-	return <FetchList />;
+const CategoryList = ({slug}) => {
+	return <FetchList slug={slug} />;
 };
 
-const FetchList = async () => {
+const FetchList = async ({slug}) => {
 	try {
-		const response = await fetch("https://dummyjson.com/products/category/smartphones");
+		const response = await fetch(`https://dummyjson.com/products/category/${slug}`);
 		console.log(response);
+
 		const data = await response.json();
 
 		return data.products.map((product) => {

@@ -38,7 +38,7 @@ const CategoryPage = async ({ params }) => {
         </article>
         <article className="ml-4 mb-8 mt-8">
           <div className="flex flex-wrap gap-8">
-        <CategoryList/>
+        <CategoryList slug={slug}/>
           </div>
         </article>
         <img
