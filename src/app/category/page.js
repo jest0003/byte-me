@@ -1,24 +1,29 @@
 import Filter from "../components/category/Filter";
 const Category = () => {
-    return ( 
-        <div>
+  return (
+    <div className="flex">
+      <Filter />
+      <div className="w-screen">
         <article className="relative pb-16">
-<Filter />
-<img src="/bg-tech/tech-long.png"
-height={100}
-className="w-full h-20 object-cover opacity-30"></img>
+          <img
+            src="/bg-tech/tech-long.png"
+            height={100}
+            className="w-full h-20 object-cover opacity-30"
+          ></img>
 
-<section className="absolute top-14">
-    <p>Bred / crumb </p>
-        <h1>Phones</h1>
-</section>
+          <section className="absolute top-14 ml-4">
+            <p>Bred / crumb </p>
+            <h1>Phones</h1>
+            <p>HER KOMMER CARDS</p>
+            <img
+              src="/bg-tech/tech-short.png"
+              className="w-screen h-40 object-cover opacity-30"
+            ></img>
+          </section>
         </article>
-        <article>
-            <p>Tekst</p>
-        </article>
-        <img src="/bg-tech/tech-short.png" className="w-full h-40 object-cover opacity-30"></img>
-        </div>
-     );
-}
- 
+      </div>
+    </div>
+  );
+};
+
 export default Category;
