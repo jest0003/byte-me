@@ -1,6 +1,8 @@
 "use server";
 import Button from "../../../components/singleview/Button"
 import Favorite from "../../../components/indexpage/FavoritElement";
+import SingleProduct from "../../../components/category/SingleProduct";
+import ReviewList from "../../../components/category/ReviewList";
 
 const ProductPage = async ({ params }) => {
 const { id } = await params;
@@ -12,7 +14,11 @@ const { id } = await params;
   const data = await response.json();
 
   return (
-    <div className="flex flex-row gap-4 p-10 font-sans items-start">
+    <article>
+<SingleProduct data={data}/>
+<ReviewList data={data} />
+
+    <div className="flex flex-row gap-4 p-10 font-sans items-start mt-20">
       {/* <div className="flex flex-col gap-4">
         {data.images?.slice(0, 3).map((img, index) => (
           <button onClick={() => "{data.thumbnail}"} key={index} className="h-[100px] w-[100px] rounded-sm flex items-center justify-center p-2" style={{ background: "var(--color-3)" }}>
@@ -59,7 +65,7 @@ const { id } = await params;
         </div>
       </div>
     </div>
-    
+    </article>
   );
 };
 

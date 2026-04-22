@@ -1,6 +1,7 @@
 import Filter from "../../components/category/Filter";
 import CategoryList from "@/app/components/category/CategoryList";
 import Link from "next/link";
+import SortDropdown from "@/app/components/category/SortDropDown";
 
 const CategoryPage = async ({ params, searchParams }) => {
   const { slug } = await params;
@@ -16,7 +17,7 @@ const CategoryPage = async ({ params, searchParams }) => {
   ]);
 
   const productData = await productRes.json();
-let products = productData.products;
+let products = [...productData.products];
 
 if (sort === "asc") {
   products = products.sort((a, b) =>
@@ -30,6 +31,13 @@ if (sort === "desc") {
   );
 }
 
+  if (sort === "price-asc") {
+  products = products.sort((a, b) => a.price - b.price);
+}
+
+if (sort === "price-desc") {
+  products = products.sort((a, b) => b.price - a.price);
+}
   const categories = await catRes.json();
 
   const currentCategory = categories.find(
@@ -53,14 +61,8 @@ if (sort === "desc") {
           </section>
         </article>
         <article className="ml-4 mb-8 mt-8">
-          <div className="flex gap-4">
-            <Link href={`?sort=asc`} className="px-3 py-1 bg-gray-200 rounded">
-  A-Z
-</Link>
-
-<Link href={`?sort=desc`} className="px-3 py-1 bg-gray-200 rounded">
-  Z-A
-</Link>
+          <div className="flex justify-end">
+            <SortDropdown />
           </div>
           <div className="flex flex-wrap gap-8">
         <CategoryList products={products} slug={slug}/>
