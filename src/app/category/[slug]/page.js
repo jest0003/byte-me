@@ -3,9 +3,11 @@ import CategoryList from "@/app/components/category/CategoryList";
 import Link from "next/link";
 import SortDropdown from "@/app/components/category/SortDropDown";
 
+
 const CategoryPage = async ({ params, searchParams }) => {
   const { slug } = await params;
-  const { sort } = await searchParams;
+  const { sort, price, brand } = await searchParams;
+  
 
   const [productRes, catRes] = await Promise.all([
     fetch(
@@ -19,6 +21,8 @@ const CategoryPage = async ({ params, searchParams }) => {
   const productData = await productRes.json();
 let products = [...productData.products];
 
+
+//Sorting
 if (sort === "asc") {
   products = products.sort((a, b) =>
     a.title.localeCompare(b.title)
@@ -37,6 +41,21 @@ if (sort === "desc") {
 
 if (sort === "price-desc") {
   products = products.sort((a, b) => b.price - a.price);
+}
+
+//Filtering
+if (price === "low") {
+  products = products.filter((p) => p.price < 500);
+}
+
+if (price === "high") {
+  products = products.filter((p) => p.price >= 500);
+}
+
+if (brand) {
+  products = products.filter(
+    (p) => p.brand.toLowerCase() === brand
+  );
 }
   const categories = await catRes.json();
 
@@ -59,11 +78,12 @@ if (sort === "price-desc") {
             <p>Category / {currentCategory?.name} </p>
             <h1>{currentCategory?.name}</h1>
           </section>
-        </article>
-        <article className="ml-4 mb-8 mt-8">
-          <div className="flex justify-end">
+           <div className="absolute right-0 top-28">
             <SortDropdown />
           </div>
+        </article>
+        <article className="ml-4 mb-8 mt-8">
+         
           <div className="flex flex-wrap gap-8">
         <CategoryList products={products} slug={slug}/>
           </div>
