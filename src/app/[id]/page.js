@@ -1,13 +1,11 @@
 "use server";
-import Button from "../components/singleview/Button"
+import Button from "../components/singleview/Button";
 import Favorite from "../components/indexpage/FavoritElement";
 
 const ProductPage = async ({ params }) => {
-const { id } = await params;
+  const { id } = await params;
 
-  const response = await fetch(
-    `https://dummyjson.com/products/${id}`
-  );
+  const response = await fetch(`https://dummyjson.com/products/${id}`);
 
   const data = await response.json();
 
@@ -59,7 +57,6 @@ const { id } = await params;
         </div>
       </div>
     </div>
-    
   );
 };
 
