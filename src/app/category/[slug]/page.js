@@ -1,8 +1,11 @@
 import Filter from "../../components/category/Filter";
 import CategoryList from "@/app/components/category/CategoryList";
+import Link from "next/link";
+import SortDropdown from "@/app/components/category/SortDropDown";
 
-const CategoryPage = async ({ params }) => {
+const CategoryPage = async ({ params, searchParams }) => {
   const { slug } = await params;
+  const { sort } = await searchParams;
 
   const [productRes, catRes] = await Promise.all([
     fetch(
@@ -14,6 +17,27 @@ const CategoryPage = async ({ params }) => {
   ]);
 
   const productData = await productRes.json();
+let products = [...productData.products];
+
+if (sort === "asc") {
+  products = products.sort((a, b) =>
+    a.title.localeCompare(b.title)
+  );
+}
+
+if (sort === "desc") {
+  products = products.sort((a, b) =>
+    b.title.localeCompare(a.title)
+  );
+}
+
+  if (sort === "price-asc") {
+  products = products.sort((a, b) => a.price - b.price);
+}
+
+if (sort === "price-desc") {
+  products = products.sort((a, b) => b.price - a.price);
+}
   const categories = await catRes.json();
 
   const currentCategory = categories.find(
@@ -37,8 +61,11 @@ const CategoryPage = async ({ params }) => {
           </section>
         </article>
         <article className="ml-4 mb-8 mt-8">
+          <div className="flex justify-end">
+            <SortDropdown />
+          </div>
           <div className="flex flex-wrap gap-8">
-        <CategoryList slug={slug}/>
+        <CategoryList products={products} slug={slug}/>
           </div>
         </article>
         <img
