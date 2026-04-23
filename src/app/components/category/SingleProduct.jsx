@@ -3,6 +3,7 @@
 import Favorite from "../indexpage/FavoritElement";
 import { RiShoppingBasket2Line } from "react-icons/ri";
 import { useCart } from "../context/CartContext";
+import { useState } from "react";
 
 const SingleProduct = ({ data }) => {
   const { addToCart } = useCart();
@@ -28,7 +29,22 @@ const SingleProduct = ({ data }) => {
 
         <p className="text-2xl font-medium mb-4">${data.price}</p>
 
-        <button onClick={() => addToCart(product)} className="bg-[#7BB8B8] text-white px-6 py-2 rounded-full flex items-center gap-2">
+        <button
+          onClick={() => {
+            addToCart(product);
+
+            setActive(true);
+            setTimeout(
+              () => setActive(false),
+              600,
+            );
+          }}
+          className={`px-6 py-2 bg-[#D0A3DA] rounded-full flex items-center gap-2 transition-all duration-200 border-4 ${
+            active
+              ? "border-green-500"
+              : "border-transparent"
+          }`}
+        >
           <RiShoppingBasket2Line size={24} />
           Add to cart
         </button>
