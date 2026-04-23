@@ -32,7 +32,7 @@ const Payment = () => {
 									<Button cartId={item.cartId} quantity={item.quantity} />
 								</div>
 
-								<h5 className="text-xl font-normal uppercase">{item.price}$</h5>
+								<h3 className="text-xl font-normal uppercase">{item.price * item.quantity}$</h3>
 							</div>
 
 							<div className="mt-6 space-y-1 text-sm flex items-center gap-2">
