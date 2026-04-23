@@ -1,4 +1,3 @@
-export const dynamic = "force-dynamic";
 import Filter from "../../components/category/Filter";
 import CategoryList from "@/app/components/category/CategoryList";
 import SortDropdown from "@/app/components/category/SortDropDown";
