@@ -3,13 +3,9 @@ import Reviews from "../components/singleview/Reviews";
 
 export default function Page() {
   return (
-    <div className="bg-[#E8F0F2]">
+    <main className="bg-[#E8F0F2] min-h-screen">
       <Singleview />
       <Reviews />
-    </div>
-
-    // <div style={{ background: "var(--background)" }}>
-    //   <Singleview />
-    // </div>
+    </main>
   );
 }

@@ -1,5 +1,10 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
 import Favorite from "../indexpage/FavoritElement";
-import Button from "../../components/singleview/Button";
+import { RiShoppingBasket2Line } from "react-icons/ri";
+import { useCart } from "../context/CartContext";
 
 const SingleProduct = ({ data }) => {
 	return (
