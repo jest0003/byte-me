@@ -2,6 +2,7 @@
 import SingleProduct from "../../../components/category/SingleProduct";
 import ReviewList from "../../../components/category/ReviewList";
 import Link from "next/link";
+import { Suspense } from "react";
 
 const ProductPage = async ({ params }) => {
   const { id, category, title } = await params;
@@ -18,15 +19,19 @@ const ProductPage = async ({ params }) => {
 
   return (
     <article>
-      <p>
-        <Link href={"/"}>Home</Link> /{" "}
-        <Link href={`/category/${data.category}`}>
-          {data.category}
-        </Link>{" "}
-        / {data.title}
-      </p>
-      <SingleProduct data={data} />
-      <ReviewList data={data} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <p>
+          <Link href={"/"}>Home</Link> /{" "}
+          <Link
+            href={`/category/${data.category}`}
+          >
+            {data.category}
+          </Link>{" "}
+          / {data.title}
+        </p>
+        <SingleProduct data={data} />
+        <ReviewList data={data} />
+      </Suspense>
     </article>
   );
 };

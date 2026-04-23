@@ -1,5 +1,5 @@
 import FeaturedCard from "./FeaturedCard";
-import Link from "next/link";
+import { Suspense } from "react";
 
 const FeaturedList = () => {
   return <FetchList />;
@@ -20,14 +20,18 @@ const FetchList = async () => {
           key={product.id}
           className="relative"
         >
-          <FeaturedCard
-            title={product.title}
-            category={product.category}
-            key={product.id}
-            id={product.id}
-            price={product.price}
-            image={product.thumbnail}
-          />
+          <Suspense
+            fallback={<div>Loading...</div>}
+          >
+            <FeaturedCard
+              title={product.title}
+              category={product.category}
+              key={product.id}
+              id={product.id}
+              price={product.price}
+              image={product.thumbnail}
+            />
+          </Suspense>
         </div>
       );
     });

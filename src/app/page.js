@@ -1,5 +1,6 @@
 import CategoryCard from "./components/indexpage/CategoryCard";
 import FeaturedList from "./components/indexpage/FeaturedList";
+import { Suspense } from "react";
 
 import Link from "next/link";
 
@@ -7,17 +8,25 @@ export default function Home() {
   return (
     <div>
       <section className="grid-hero stretch bg-[#eef2ff] hero-bg p-20">
-        <img src="/img/tablet_category.png" className="" alt="category" />
+        <img
+          src="/img/tablet_category.png"
+          className=""
+          alt="category"
+        />
 
         <div className="">
           <h1>Smart tech. Smarter choice.</h1>
-          <p className="">iPad Mini 2021 Starlight</p>
+          <p className="">
+            iPad Mini 2021 Starlight
+          </p>
           <div className="flex flex-row gap-3.5 mt-9">
             <p className="">499.99$</p>
           </div>
           <div className="flex flex-row gap-3.5 mt-2">
             <Link href={`/category/tablets/159`}>
-              <button className="border-2 border-[#CCE0F9] filter drop-shadow-[0_0_0.75rem_white] bg-white cursor-pointer p-2 rounded-3xl">Read more</button>
+              <button className="border-2 border-[#CCE0F9] filter drop-shadow-[0_0_0.75rem_white] bg-white cursor-pointer p-2 rounded-3xl">
+                Read more
+              </button>
             </Link>
           </div>
         </div>
@@ -26,16 +35,30 @@ export default function Home() {
         <h3>Shop categories</h3>
         <div className="flex flex-row gap-20 justify-center">
           <Link href={`/category/smartphones`}>
-            <CategoryCard imgsrc="/img/phone_category.png" categoryname="Phones"></CategoryCard>
+            <CategoryCard
+              imgsrc="/img/phone_category.png"
+              categoryname="Phones"
+            ></CategoryCard>
           </Link>
           <Link href={`/category/tablets`}>
-            <CategoryCard imgsrc="/img/tablet_category.png" categoryname="Tablets"></CategoryCard>
+            <CategoryCard
+              imgsrc="/img/tablet_category.png"
+              categoryname="Tablets"
+            ></CategoryCard>
           </Link>
           <Link href={`/category/laptops`}>
-            <CategoryCard imgsrc="/img/laptop_category.png" categoryname="Laptops"></CategoryCard>
+            <CategoryCard
+              imgsrc="/img/laptop_category.png"
+              categoryname="Laptops"
+            ></CategoryCard>
           </Link>
-          <Link href={`/category/mobile-accessories`}>
-            <CategoryCard imgsrc="/img/accessories_category.png" categoryname="Mobile Accessories"></CategoryCard>
+          <Link
+            href={`/category/mobile-accessories`}
+          >
+            <CategoryCard
+              imgsrc="/img/accessories_category.png"
+              categoryname="Mobile Accessories"
+            ></CategoryCard>
           </Link>
         </div>
       </section>
@@ -44,7 +67,11 @@ export default function Home() {
           <h3>Featured products</h3>
         </div>
         <div className="flex flex-row gap-8 justify-center flex-wrap">
-          <FeaturedList></FeaturedList>
+          <Suspense
+            fallback={<div>Loading...</div>}
+          >
+            <FeaturedList />
+          </Suspense>
         </div>
       </section>
 
@@ -56,13 +83,21 @@ export default function Home() {
             <p className="">19.99$</p>
           </div>
           <div className="flex flex-row gap-3.5 mt-2">
-            <Link href={`/category/mobile-accessories/109`}>
-              <button className="border-2 border-[#CCE0F9] filter drop-shadow-[0_0_0.75rem_white] bg-white cursor-pointer p-2 rounded-3xl">Read more</button>
+            <Link
+              href={`/category/mobile-accessories/109`}
+            >
+              <button className="border-2 border-[#CCE0F9] filter drop-shadow-[0_0_0.75rem_white] bg-white cursor-pointer p-2 rounded-3xl">
+                Read more
+              </button>
             </Link>
           </div>
         </div>
 
-        <img src="/img/accessories_category.png" className="rotate-y-180" alt="category" />
+        <img
+          src="/img/accessories_category.png"
+          className="rotate-y-180"
+          alt="category"
+        />
       </section>
     </div>
   );
