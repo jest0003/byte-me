@@ -4,6 +4,7 @@ import NavTop from "./components/navTop";
 import Footer from "./components/Footer";
 // 1. Importer din CartProvider (sørg for at stien passer til hvor du har filen)
 import { CartProvider } from "./components/context/CartContext";
+import { Suspense } from "react";
 
 const exo2 = Exo_2({
   variable: "--font-exo2",
@@ -23,14 +24,21 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${exo2.variable} ${gidole.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      className={`${exo2.variable} ${gidole.variable} h-full antialiased`}
+    >
       <body className="min-h-full flex flex-col">
-        {/* 2. Pak NavTop og children ind i CartProvider */}
-        <CartProvider>
-          <NavTop />
-          <main>{children}</main>
-          <Footer />
-        </CartProvider>
+        <Suspense
+          fallback={<div>Loading...</div>}
+        >
+          {/* 2. Pak NavTop og children ind i CartProvider */}
+          <CartProvider>
+            <NavTop />
+            <main>{children}</main>
+            <Footer />
+          </CartProvider>
+        </Suspense>
       </body>
     </html>
   );
