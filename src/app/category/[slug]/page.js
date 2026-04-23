@@ -18,6 +18,9 @@ const CategoryPage = async ({
     fetch(
       "https://dummyjson.com/products/categories",
     ),
+    {
+      cache: "no-store",
+    },
   ]);
 
   const productData = await productRes.json();
