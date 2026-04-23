@@ -43,8 +43,11 @@ export default function Home() {
 					<Link href={`/category/laptops`}>
 						<CategoryCard imgsrc="/img/laptop_category.png" categoryname="Laptops"></CategoryCard>
 					</Link>
-					<Link href={`/category/accessories`}>
-						<CategoryCard imgsrc="/img/accessories_category.png" categoryname="Accessories"></CategoryCard>
+					<Link href={`/category/mobile-accessories`}>
+						<CategoryCard
+							imgsrc="/img/accessories_category.png"
+							categoryname="Mobile Accessories"
+						></CategoryCard>
 					</Link>
 				</div>
 			</section>
