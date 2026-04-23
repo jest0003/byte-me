@@ -6,7 +6,7 @@ import Link from "next/link";
 
 import { useCart } from "../context/CartContext";
 
-const FeaturedCard = ({ id, title, price, image, category }) => {
+const FeaturedCard = ({ id, title, price, image, category, product }) => {
 	const { addToCart } = useCart();
 
 	return (
