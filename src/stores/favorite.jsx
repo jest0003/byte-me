@@ -1,5 +1,3 @@
-"use client";
-
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
@@ -9,9 +7,12 @@ const useFavorites = create(
       favorites: [],
 
       setFavorite: (id) =>
-        set((state) => ({
-          favorites: [...state.favorites, { id }],
-        })),
+        set((state) => {
+          if (state.favorites.some((fav) => fav.id === id)) return state;
+          return {
+            favorites: [...state.favorites, { id }],
+          };
+        }),
 
       removeFavorite: (id) =>
         set(() => ({
@@ -19,7 +20,7 @@ const useFavorites = create(
         })),
     }),
     {
-      name: "favorites-storage",
+      name: "favorites-storage", // vigtigt
     },
   ),
 );
