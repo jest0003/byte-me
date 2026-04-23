@@ -13,7 +13,7 @@ const SingleProduct = ({ data }) => {
 			</figure>
 
 			<div className="max-w-[490px] text-black">
-				<h1 className="text-3xl font-bold">{data.title}</h1>
+				<h1 className="text-3xl font-bold mb-3">{data.title}</h1>
 				<p className="text-gray-600 mb-6 leading-relaxed">{data.description}</p>
 
 				<div className="mb-6">

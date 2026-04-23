@@ -1,8 +1,4 @@
-import Image from "next/image";
 import CategoryCard from "./components/indexpage/CategoryCard";
-import FeaturedCard from "./components/indexpage/FeaturedCard";
-
-import { RiShoppingBasket2Line } from "react-icons/ri";
 import FeaturedList from "./components/indexpage/FeaturedList";
 
 import Link from "next/link";
