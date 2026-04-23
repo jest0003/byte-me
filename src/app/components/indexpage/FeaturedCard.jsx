@@ -47,7 +47,7 @@ const FeaturedCard = ({
               600,
             );
           }}
-          className={`px-6 py-2 rounded-full flex items-center gap-2 transition-all duration-200 border-2 ${
+          className={`px-6 py-2 rounded-full cursor-pointer flex items-center gap-2 transition-all duration-200 border-2 ${
             active
               ? "border-green-500"
               : "border-transparent"
