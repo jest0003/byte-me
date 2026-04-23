@@ -30,7 +30,7 @@ const Payment = () => {
               </div>
 
               <div className="mt-6 space-y-1 text-sm">
-                <p className="text-gray-600">See how fast you can get this item.</p>
+                <p className="text-gray-600">See how fast you can get this item .</p>
 
                 <div className="flex items-center gap-2">
                   <span>🚚</span>

@@ -1,118 +1,48 @@
 "use client";
-import { useState, useEffect } from "react";
-import Button from "./Button";
 
-const Singleview = async () => {
-  const res = await fetch("https://dummyjson.com/products/121");
-  const data = await res.json();
+import { useEffect, useState } from "react";
+import { useCart } from "../../../../context/CartContext";
+import { RiShoppingBasket2Line } from "react-icons/ri";
+
+const Singleview = ({ slug, id, title, price, image }) => {
+  const { addToCart } = useCart();
+
+  const product = { id, title, price, image };
+
+  useEffect(() => {
+    fetch("https://dummyjson.com/products/121")
+      .then((res) => res.json())
+      .then(setData);
+  }, []);
+
+  if (!data) return <p>Loading...</p>;
 
   return (
-    <div className="flex flex-row gap-4 p-10 font-sans items-start">
-      <div className="flex flex-col gap-4">
-        {/* Vi tager de første 3 billeder fra API'et */}
-        {data.images?.slice(0, 3).map((img, index) => (
-          <button onClick={() => "{data.thumbnail}"} key={index} className="h-[100px] w-[100px] rounded-sm flex items-center justify-center p-2" style={{ background: "var(--color-3)" }}>
-            <img src={img} alt={`Thumbnail ${index}`} className="max-h-full object-contain" />
-          </button>
-        ))}
+    <div className="flex flex-row gap-10 p-10 font-sans">
+      {/* IMAGE */}
+      <div className="flex h-[500px] w-[500px] items-center justify-center bg-[var(--color-3)] p-8">
+        <img src={data.thumbnail} alt={data.title} className="h-[350px] object-contain" />
       </div>
 
-      {/* BILLEDE */}
-      <figure className="flex h-[500px] w-[500px] items-center justify-center rounded-sm p-8" style={{ background: "var(--color-3)" }}>
-        <img src={data.thumbnail} alt={data.title} className="h-[352px] object-contain" />
-      </figure>
-
       {/* INFO */}
-      <div className="max-w-[490px] text-black">
-        <h1 className="mb-1 mt-[-1.6rem] text-3xl font-bold">{data.title}</h1>
-        <p className="text-gray-600 mb-6 leading-relaxed">{data.description}</p>
+      <div className="max-w-[500px]">
+        <h1 className="text-3xl font-bold">{data.title} </h1>
 
-        <div className="mb-6">
-          <p className="text-2xl font-medium">${data.price}</p>
-          <p className="text-sm mt-1">in stock ({data.stock})</p>
-        </div>
+        <p className="text-gray-600 my-4">{data.description}</p>
 
-        <Button />
+        <p className="text-2xl font-bold mb-6">${data.price}</p>
 
-        {/* EKSTRA INFO */}
-        <div className="space-y-4 pt-6 text-sm border-t border-gray-200 mt-6">
-          <div className="flex items-start gap-3">
-            <span className="text-xl">🚚</span>
-            <div>
-              <p className="font-semibold">Free Delivery</p>
-              <p className="text-gray-500 underline text-xs">Enter your Postal code for Delivery Availability</p>
-            </div>
-          </div>
+        <button onClick={() => addToCart(product)} className="bg-[#7BB8B8] text-white px-6 py-2 rounded-full flex items-center gap-2">
+          <RiShoppingBasket2Line size={24} />
+          Add to cart
+        </button>
 
-          <div className="flex items-start gap-3">
-            <span className="text-xl">🔄</span>
-            <div>
-              <p className="font-semibold">Return Delivery</p>
-              <p className="text-gray-500 text-xs">Free 30days Delivery Returns</p>
-            </div>
-          </div>
-        </div>
+        <button onClick={() => addToCart(product)} className="cursor-pointer hover:scale-110 transition-transform p-2 bg-white/10 rounded-full" aria-label="Add to cart">
+          <RiShoppingBasket2Line size={32} />
+        </button>
       </div>
     </div>
   );
 };
 
 export default Singleview;
-
-// import Button from "./Button";
-
-// const Singleview = async () => {
-//   const res = await fetch("https://dummyjson.com/products/1");
-//   const data = await res.json();
-
-//   return (
-//     <div className="flex flex-row gap-4 p-10 font-sans items-start">
-//       {/* thumbnails */}
-//       <div className="flex flex-col gap-4">
-//         {[1, 2, 3].map((i) => (
-//           <div key={i} className="h-[100px] w-[100px] rounded-sm" style={{ background: "var(--color-3)" }} />
-//         ))}
-//       </div>
-
-//       {/* billede */}
-//       <figure className="flex h-[500px] w-[500px] items-center justify-center rounded-sm p-8" style={{ background: "var(--color-3)" }}>
-//         <img src={data.thumbnail} alt={data.title} className="max-h-full object-contain" />
-//       </figure>
-
-//       {/* info */}
-//       <div className="max-w-[490px] text-black">
-//         <h1 className="mb-1 mt-[-1.6rem]">{data.title}</h1>
-
-//         <p className="text-gray-600 mb-6 leading-relaxed">{data.description}</p>
-
-//         <div className="mb-6">
-//           <p className="text-2xl font-medium">${data.price}</p>
-//           <p className="text-sm mt-1">in stock ({data.stock})</p>
-//         </div>
-
-//         <Button />
-
-//         {/* info */}
-//         <div className="space-y-4 pt-2 text-sm">
-//           <div className="flex items-start gap-3">
-//             <span className="text-xl">🚚</span>
-//             <div>
-//               <p className="font-semibold">Free Delivery</p>
-//               <p className="text-gray-500 underline text-xs">Enter your Postal code for Delivery Availability</p>
-//             </div>
-//           </div>
-
-//           <div className="flex items-start gap-3">
-//             <span className="text-xl">🔄</span>
-//             <div>
-//               <p className="font-semibold">Return Delivery</p>
-//               <p className="text-gray-500 text-xs">Free 30days Delivery Returns</p>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Singleview;

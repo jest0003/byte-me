@@ -1,4 +1,5 @@
 "use client";
+
 import { createContext, useContext, useState, useEffect } from "react";
 
 const CartContext = createContext();
@@ -6,7 +7,7 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  // Load from localStorage
+  // Load cart
   useEffect(() => {
     const storedCart = localStorage.getItem("cart");
     if (storedCart) {
@@ -14,12 +15,12 @@ export const CartProvider = ({ children }) => {
     }
   }, []);
 
-  // Save to localStorage
+  // Save cart
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  // ✅ Add with unique cartId
+  // ➕ Add to cart
   const addToCart = (product) => {
     const newItem = {
       ...product,
@@ -30,12 +31,12 @@ export const CartProvider = ({ children }) => {
     setCart((prev) => [...prev, newItem]);
   };
 
-  // ✅ Remove ONE item
+  // ❌ Remove
   const removeFromCart = (cartId) => {
     setCart((prev) => prev.filter((item) => item.cartId !== cartId));
   };
 
-  // ✅ Update quantity
+  // 🔁 Update quantity
   const updateQuantity = (cartId, newQty) => {
     setCart((prev) => prev.map((item) => (item.cartId === cartId ? { ...item, quantity: Math.max(1, newQty) } : item)));
   };
