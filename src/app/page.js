@@ -23,7 +23,7 @@ export default function Home() {
 						<button className="border-2 border-white text-white cursor-pointer p-2 rounded-3xl">
 							Add to basket
 						</button>
-						<Link href={``}>
+						<Link href={`/category/tablets/159`}>
 							<button className="border-2 border-[#CCE0F9] filter drop-shadow-[0_0_0.75rem_white] bg-white cursor-pointer p-2 rounded-3xl">
 								Read more
 							</button>
@@ -67,7 +67,7 @@ export default function Home() {
 						<button className="border-2 border-white text-white cursor-pointer p-2 rounded-3xl">
 							Add to basket
 						</button>
-						<Link href={``}>
+						<Link href={`/category/mobile-accessories/109`}>
 							<button className="border-2 border-[#CCE0F9] filter drop-shadow-[0_0_0.75rem_white] bg-white cursor-pointer p-2 rounded-3xl">
 								Read more
 							</button>
