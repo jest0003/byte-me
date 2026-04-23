@@ -6,9 +6,8 @@ import Link from "next/link";
 
 import { useCart } from "../context/CartContext";
 
-const FeaturedCard = ({ id, title, price, image, category }) => {
-  const { addToCart } = useCart();
-  const product = { id, title, price, image };
+const FeaturedCard = ({ id, title, price, image, category, product }) => {
+	const { addToCart } = useCart();
 
   return (
     <div style={{ background: "var(--color-3)" }} className="my-4 rounded-2xl max-w-full max-h-full w-[275px] h-[330px]">

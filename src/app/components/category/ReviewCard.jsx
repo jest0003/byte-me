@@ -3,7 +3,7 @@ const ReviewCard = ({ comment, rating, username, date }) => {
 		<section className="flex flex-col border-2 border-b-6 p-5 px-10 rounded border-[#4E77F6]">
 			<div className="flex gap-1">
 				{[...Array(Math.round(rating))].map((_, index) => (
-					<span key={index}>★</span>
+					<span key={index}>⭐</span>
 				))}
 			</div>
 			<div className="flex flex-col gap-6 items-start">
