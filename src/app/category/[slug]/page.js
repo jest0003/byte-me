@@ -1,6 +1,6 @@
+export const dynamic = "force-dynamic";
 import Filter from "../../components/category/Filter";
 import CategoryList from "@/app/components/category/CategoryList";
-import Link from "next/link";
 import SortDropdown from "@/app/components/category/SortDropDown";
 
 const CategoryPage = async ({
@@ -14,13 +14,12 @@ const CategoryPage = async ({
   const [productRes, catRes] = await Promise.all([
     fetch(
       `https://dummyjson.com/products/category/${slug}`,
+      { cache: "no-store" },
     ),
     fetch(
       "https://dummyjson.com/products/categories",
+      { cache: "no-store" },
     ),
-    {
-      cache: "no-store",
-    },
   ]);
 
   const productData = await productRes.json();

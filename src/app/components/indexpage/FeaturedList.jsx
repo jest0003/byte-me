@@ -9,9 +9,7 @@ const FetchList = async () => {
   try {
     const response = await fetch(
       "https://dummyjson.com/products/category/smartphones?limit=8",
-      {
-        cache: "no-store",
-      },
+      { cache: "no-store" },
     );
     console.log(response);
     const data = await response.json();
