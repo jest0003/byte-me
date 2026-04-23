@@ -1,6 +1,11 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+} from "react";
 
 const CartContext = createContext();
 
@@ -9,7 +14,8 @@ export const CartProvider = ({ children }) => {
 
   // Load cart
   useEffect(() => {
-    const storedCart = localStorage.getItem("cart");
+    const storedCart =
+      localStorage.getItem("cart");
     if (storedCart) {
       setCart(JSON.parse(storedCart));
     }
@@ -17,7 +23,10 @@ export const CartProvider = ({ children }) => {
 
   // Save cart
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem(
+      "cart",
+      JSON.stringify(cart),
+    );
   }, [cart]);
 
   // ➕ Add to cart
@@ -33,18 +42,43 @@ export const CartProvider = ({ children }) => {
 
   // ❌ Remove
   const removeFromCart = (cartId) => {
-    setCart((prev) => prev.filter((item) => item.cartId !== cartId));
+    setCart((prev) =>
+      prev.filter(
+        (item) => item.cartId !== cartId,
+      ),
+    );
   };
 
   // 🔁 Update quantity
   const updateQuantity = (cartId, newQty) => {
-    setCart((prev) => prev.map((item) => (item.cartId === cartId ? { ...item, quantity: Math.max(1, newQty) } : item)));
+    setCart((prev) =>
+      prev.map((item) =>
+        item.cartId === cartId
+          ? {
+              ...item,
+              quantity: Math.max(1, newQty),
+            }
+          : item,
+      ),
+    );
   };
 
-  return <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity }}>{children}</CartContext.Provider>;
+  return (
+    <CartContext.Provider
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        updateQuantity,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
 };
 
-export const useCart = () => useContext(CartContext);
+export const useCart = () =>
+  useContext(CartContext);
 
 // "use client";
 // import { createContext, useContext, useState } from "react";
